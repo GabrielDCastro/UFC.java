@@ -7,33 +7,42 @@ package javaapplication1;
 public class Lutador {
     
     private String nome, nacionalidade, categoria;
-    private int idade, votoria, empate;
+    private int idade, vitoria, empate;
     private float altura, peso;
     
     public void apresentar(){
+        System.out.println("Lutador: " + this.getNome());
+        System.out.println("Do "+ this.getNacionalidade());
+        System.out.println("Com "+ this.getIdade() +" anos");
+        System.out.println("E com "+this.getAltura());
+        System.out.println("E pesando "+this.getPeso() +" quilos");
+        System.out.println("Com um total de "+ this.getVitoria()+" vitórias");
+        System.out.println("");
         
     }
     public void status(){
-        
+        System.out.println(this.getNome() +" é um peso "+ this.getCategoria());
+        System.out.println("");
     }
     public void ganharluta(){
-        
+        this.setVitoria(this.getVitoria() + 1);
+        //this.vitoria = this.vitoria +1; mesma coisa que a de cima 
     }
     public void perderluta(){
         
     }
-    public void empatAR(){
-        
+    public void empatar(){
+        this.setEmpate(this.getEmpate() + 1);
     }
 
-    public Lutador(String nome, String nacionalidade, int idade, int votoria, int empate, float altura, float peso) {
+    public Lutador(String nome, String nacionalidade, int idade, int vitoria, int empate, float altura, float peso) {
         this.nome = nome;
         this.nacionalidade = nacionalidade;
         this.idade = idade;
-        this.votoria = votoria;
+        this.vitoria = vitoria;
         this.empate = empate;
         this.altura = altura;
-        this.peso = peso;
+        this.setPeso(peso);
     }
 
     public String getNome() {
@@ -56,12 +65,21 @@ public class Lutador {
         return categoria;
     }
 
-    public void setCategoria() {
+    private void setCategoria() {
         if(this.peso<52){
             this.categoria = "Inválido";
         }
         else if (this.peso<=70){
             this.categoria="Leve";
+        }
+        else if (this.peso<=85){
+            this.categoria="Médio";
+        }
+        else if (this.peso<=120){
+            this.categoria="Pesado";
+        }
+        else {
+            this.categoria="Inválido";
         }
     }
 
@@ -73,12 +91,12 @@ public class Lutador {
         this.idade = idade;
     }
 
-    public int getVotoria() {
-        return votoria;
+    public int getVitoria() {
+        return vitoria;
     }
 
-    public void setVotoria(int votoria) {
-        this.votoria = votoria;
+    public void setVitoria(int vitoria) {
+        this.vitoria = vitoria;
     }
 
     public int getEmpate() {
